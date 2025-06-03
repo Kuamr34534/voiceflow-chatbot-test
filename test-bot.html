@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Voiceflow Chatbot with File Upload</title>
+
+    <!-- Load your extension script (from your GitHub jsDelivr link) -->
+    <script src="https://cdn.jsdelivr.net/gh/Kuamr34534/vf-extension/extensions.js"></script>
+
+    <!-- Load Voiceflow Chat SDK -->
+    <script type="module">
+      import chatWidget from 'https://cdn.voiceflow.com/widget/bundle.mjs';
+
+      // Register the extension globally
+      window.FileUpload = window.FileUpload || FileUpload;
+
+      // Launch the widget
+      chatWidget.load({
+        verify: { projectID: '68355c3165902b74f7e74804' }, // ✅ Your Voiceflow project ID
+        url: 'https://general-runtime.voiceflow.com',
+        versionID: 'production',
+        assistant: {
+          extensions: [FileUpload]
+        },
+        render: {
+          mode: 'overlay'
+        },
+        autostart: true,
+        allowDangerousHTML: true
+      });
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
